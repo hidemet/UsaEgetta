@@ -23,7 +23,6 @@ import com.example.hammami.presentation.ui.fragments.userProfile.coupon.CouponVi
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
-// CouponFragment.kt
 @AndroidEntryPoint
 class CouponFragment : BaseFragment() {
     private var _binding: FragmentCouponBinding? = null
