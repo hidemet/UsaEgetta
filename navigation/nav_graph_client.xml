@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/client_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.hammami.presentation.ui.fragments.client.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home">
+        <!-- Definisci l'azione di navigazione dal homeFragment al profileFragment -->
+        <action
+            android:id="@+id/action_homeFragment_to_profileFragment"
+            app:destination="@id/navigation_profile" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.hammami.presentation.ui.fragments.client.SearchFragment"
+        android:label="SearchFragment"
+        tools:layout="@layout/fragment_search" />
+
+    <fragment
+        android:id="@+id/aboutUsFragment"
+        android:name="com.example.hammami.presentation.ui.fragments.client.AboutUsFragment"
+        android:label="AboutUsFragment"
+        tools:layout="@layout/fragment_appointments" />
+
+    <fragment
+        android:id="@+id/appointmentsFragment"
+        android:name="com.example.hammami.presentation.ui.fragments.client.AppointmentsFragment"
+        android:label="AppointmentsFragment"
+        tools:layout="@layout/fragment_about_us" />
+
+    <navigation android:id="@+id/navigation_profile"
+        app:startDestination="@id/profileFragment">
+        <fragment
+            android:id="@+id/giftCardsFragment"
+            android:name="com.example.hammami.presentation.ui.fragments.userProfile.giftCard.giftCard"
+            android:label="GiftCardsFragment"
+            tools:layout="@layout/fragment_gift_cards" />
+
+        <fragment
+            android:id="@+id/couponFragment"
+            android:name="com.example.hammami.presentation.ui.fragments.userProfile.coupon.CouponFragment"
+            android:label="couponFragment"
+            tools:layout="@layout/fragment_coupon" />
+        <fragment
+            android:id="@+id/profileFragment"
+            android:name="com.example.hammami.presentation.ui.fragments.userProfile.ProfileFragment"
+            android:label="Profile"
+            tools:layout="@layout/fragment_user_profile">
+            <argument
+                android:name="itemProfileOption"
+                app:argType="com.example.hammami.domain.model.ItemProfileOption" />
+            <action
+                android:id="@+id/action_profileFragment_to_giftCardsFragment"
+                app:destination="@id/giftCardsFragment" />
+            <action
+                android:id="@+id/action_profileFragment_to_editUserProfileFragment"
+                app:destination="@id/editUserProfileFragment" />
+            <action
+                android:id="@+id/action_profileFragment_to_couponFragment"
+                app:destination="@id/couponFragment" />
+
+
+        </fragment>
+
+        <fragment
+            android:id="@+id/editUserProfileFragment"
+            android:name="com.example.hammami.presentation.ui.fragments.userProfile.EditUserFragment"
+            android:label="EditUserProfileFragment"
+            tools:layout="@layout/fragment_edit_user_profile"
+            >
+        </fragment>
+
+    </navigation>
+</navigation>
